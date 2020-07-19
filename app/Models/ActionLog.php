@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
+ * Запись о действии совершенном пользователем через API.
+ *
  * @property int    $id
  * @property int    $user_id
  * @property User   $user

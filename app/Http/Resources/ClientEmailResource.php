@@ -4,40 +4,27 @@ namespace App\Http\Resources;
 
 use App\Http\Controllers\ClientEmailController;
 use App\Models\ClientEmail;
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Spatie\ResourceLinks\HasLinks;
-use Spatie\ResourceLinks\HasMeta;
+use Spatie\ResourceLinks\LinkResource;
 
 /**
  * @mixin ClientEmail
  */
-class ClientEmailResource extends JsonResource
+class ClientEmailResource extends JsonApiResource
 {
-    use HasLinks;
-    use HasMeta;
-
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  Request  $request
-     * @return array
-     */
-    public function toArray($request): array
+    protected function getAttributes(): array
     {
         return [
-            'id' => $this->id,
-            'attributes' => [
-                'email' => $this->email,
-            ],
-            'links' => $this->links(ClientEmailController::class, ['client' => $this->client_id]),
+            'email' => $this->email,
         ];
     }
 
-    public static function meta(): array
+    protected function getLinks(): LinkResource
     {
-        return [
-            'links' => self::collectionLinks(ClientEmailController::class),
-        ];
+        return $this->links(ClientEmailController::class, ['client' => $this->client_id]);
+    }
+
+    protected static function getMetaLinks(): LinkResource
+    {
+        return self::collectionLinks(ClientEmailController::class);
     }
 }

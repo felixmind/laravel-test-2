@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 /**
  * Посредник сохраняет информацию о действии, включая автора действия.
  */
-class ActionLoggerMiddleware
+class ActionLogger
 {
     /**
      * Handle an incoming request.

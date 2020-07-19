@@ -3,45 +3,37 @@
 namespace App\Http\Resources;
 
 use App\Http\Controllers\ClientController;
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Spatie\ResourceLinks\HasLinks;
-use Spatie\ResourceLinks\HasMeta;
+use App\Models\Client;
+use Spatie\ResourceLinks\LinkResource;
 
 /**
- * @mixin \App\Models\Client
+ * @mixin Client
  */
-class ClientResource extends JsonResource
+class ClientResource extends JsonApiResource
 {
-    use HasLinks;
-    use HasMeta;
-
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  Request  $request
-     * @return array
-     */
-    public function toArray($request): array
+    protected function getAttributes(): array
     {
         return [
-            'id' => $this->id,
-            'attributes' => [
-                'first_name' => $this->first_name,
-                'last_name'  => $this->last_name,
-            ],
-            'relationships' => [
-                'emails' => ClientEmailResource::collection($this->whenLoaded('emails')),
-                'phones' => ClientPhoneResource::collection($this->whenLoaded('phones')),
-            ],
-            'links' => $this->links(ClientController::class),
+            'first_name' => $this->first_name,
+            'last_name'  => $this->last_name,
         ];
     }
 
-    public static function meta(): array
+    protected function getRelationships(): array
     {
         return [
-            'links' => self::collectionLinks(ClientController::class),
+            'emails' => ClientEmailResource::collection($this->whenLoaded('emails')),
+            'phones' => ClientPhoneResource::collection($this->whenLoaded('phones')),
         ];
+    }
+
+    protected function getLinks(): LinkResource
+    {
+        return $this->links(ClientController::class);
+    }
+
+    protected static function getMetaLinks(): LinkResource
+    {
+        return self::collectionLinks(ClientController::class);
     }
 }

@@ -18,4 +18,3 @@ Route::middleware(['auth:api', 'action.log'])->group(function () {
     Route::apiResource('clients.phones', 'ClientPhoneController');
     Route::apiResource('clients.emails', 'ClientEmailController');
 });
-
