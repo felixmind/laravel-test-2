@@ -1,0 +1,54 @@
+GET http://127.0.0.1:8000/api/clients?filters[name]=Ан&filters[email]=PjBw5BNQXn@gmail.com
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/clients/11
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/clients/14
+Accept: application/json
+
+###
+
+DELETE http://127.0.0.1:8000/api/clients/14
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/error
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/clients
+Accept: application/json
+Content-Type: application/json
+
+{
+  "first_name": "Василий",
+  "last_name": "Васильев"
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/clients/13
+Accept: application/json
+Content-Type: application/json
+
+{
+  "first_name": "Петр",
+  "last_name": "Васильев"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/clients/13/phones
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/clients/13/emails
+Accept: application/json
