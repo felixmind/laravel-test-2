@@ -1,4 +1,4 @@
-GET http://127.0.0.1:8000/api/clients?filters[name]=Ан&filters[email]=PjBw5BNQXn@gmail.com
+GET http://127.0.0.1:8000/api/clients?filters[name]=Антон
 Accept: application/json
 Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
@@ -53,17 +53,20 @@ Authorization: Bearer :$1$Yz7zY6V/$6q/Fn0UWCPl8M2xLii6tQ0
 
 GET http://127.0.0.1:8000/api/clients/13/phones
 Accept: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 ###
 
 GET http://127.0.0.1:8000/api/clients/13/emails
 Accept: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 ###
 
 POST http://127.0.0.1:8000/api/clients/13/phones
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 {
   "phone": 89158375199
