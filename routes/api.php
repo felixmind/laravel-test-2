@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('clients', 'ClientController');
+    Route::apiResource('clients.phones', 'ClientPhoneController');
+    Route::apiResource('clients.emails', 'ClientEmailController');
+});
 
-Route::apiResource('clients', 'ClientController');
-Route::apiResource('clients.phones', 'ClientPhoneController');
-Route::apiResource('clients.emails', 'ClientEmailController');

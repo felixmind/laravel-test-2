@@ -1,10 +1,12 @@
 GET http://127.0.0.1:8000/api/clients?filters[name]=Ан&filters[email]=PjBw5BNQXn@gmail.com
 Accept: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 ###
 
 GET http://127.0.0.1:8000/api/clients/11
 Accept: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 ###
 
