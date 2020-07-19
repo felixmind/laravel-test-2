@@ -24,6 +24,11 @@ class ClientEmail extends Model
         'updated_at',
     ];
 
+    protected $fillable = [
+        'client_id',
+        'email',
+    ];
+
     /**
      * @return BelongsTo|Builder
      */
