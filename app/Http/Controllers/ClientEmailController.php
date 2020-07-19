@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmailStoreRequest;
 use App\Http\Resources\ClientEmailResource;
 use App\Models\Client;
 use App\Models\ClientEmail;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
@@ -27,12 +27,12 @@ class ClientEmailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @param Client  $client
+     * @param EmailStoreRequest $request
+     * @param Client            $client
      *
      * @return JsonResponse
      */
-    public function store(Request $request, Client $client): JsonResponse
+    public function store(EmailStoreRequest $request, Client $client): JsonResponse
     {
         $email = ClientEmail::create([
             'client_id' => $client->id,
@@ -58,13 +58,13 @@ class ClientEmailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request     $request
-     * @param Client      $client
-     * @param ClientEmail $email
+     * @param EmailStoreRequest $request
+     * @param Client            $client
+     * @param ClientEmail       $email
      *
      * @return JsonResponse
      */
-    public function update(Request $request, Client $client, ClientEmail $email): JsonResponse
+    public function update(EmailStoreRequest $request, Client $client, ClientEmail $email): JsonResponse
     {
         $email->update([
             'email' => $request->input('email'),

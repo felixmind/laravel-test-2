@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PhoneStoreRequest;
 use App\Http\Resources\ClientPhoneResource;
 use App\Models\Client;
 use App\Models\ClientPhone;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
@@ -27,12 +27,12 @@ class ClientPhoneController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @param Client  $client
+     * @param PhoneStoreRequest $request
+     * @param Client            $client
      *
      * @return JsonResponse
      */
-    public function store(Request $request, Client $client): JsonResponse
+    public function store(PhoneStoreRequest $request, Client $client): JsonResponse
     {
         $phone = ClientPhone::create([
             'client_id' => $client->id,
@@ -58,13 +58,13 @@ class ClientPhoneController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request     $request
-     * @param Client      $client
-     * @param ClientPhone $phone
+     * @param PhoneStoreRequest $request
+     * @param Client            $client
+     * @param ClientPhone       $phone
      *
      * @return JsonResponse
      */
-    public function update(Request $request, Client $client, ClientPhone $phone): JsonResponse
+    public function update(PhoneStoreRequest $request, Client $client, ClientPhone $phone): JsonResponse
     {
         $phone->update([
             'phone' => $request->input('phone'),
