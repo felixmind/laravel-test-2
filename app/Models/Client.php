@@ -66,13 +66,13 @@ class Client extends Model
     {
         if (isset($filters['email'])) {
             $query->whereHas('emails', function (Builder $query) use ($filters) {
-                $query->where('email', $filters['email']);
+                $query->where('email', 'LIKE', "%{$filters['email']}%");
             });
         }
 
         if (isset($filters['phone'])) {
             $query->whereHas('phones', function (Builder $query) use ($filters) {
-                $query->where('phone', $filters['phone']);
+                $query->where('phone', 'LIKE', "%{$filters['phone']}%");
             });
         }
 
