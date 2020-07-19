@@ -19,10 +19,10 @@ namespace App\Models{
  * @property string                 $last_name
  * @property Carbon                 $created_at
  * @property Carbon                 $updated_at
- * @property ClientEmail|Collection $phones
+ * @property ClientPhone|Collection $phones
  * @property ClientEmail|Collection $emails
- * @property-read int|null          $emails_count
- * @property-read int|null          $phones_count
+ * @property-read int|null $emails_count
+ * @property-read int|null $phones_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Client newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Client newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Client query()
@@ -33,6 +33,32 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Client whereUpdatedAt($value)
  */
 	class Client extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ActionLog
+ *
+ * @property int    $id
+ * @property int    $user_id
+ * @property User   $user
+ * @property string $method
+ * @property string $url
+ * @property string $content
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActionLog whereUserId($value)
+ */
+	class ActionLog extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -66,14 +92,18 @@ namespace App\Models{
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
+ * @property string|null $api_token
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ActionLog[] $actionsLogs
+ * @property-read int|null $actions_logs_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereApiToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmailVerifiedAt($value)
@@ -96,14 +126,14 @@ namespace App\Models{
  * @property string $phone
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail whereClientId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientEmail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ClientPhone whereUpdatedAt($value)
  */
 	class ClientPhone extends \Eloquent {}
 }

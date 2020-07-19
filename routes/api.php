@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:api', 'action-logger'])->group(function () {
+Route::middleware(['auth:api', 'action.log'])->group(function () {
     Route::apiResource('clients', 'ClientController');
     Route::apiResource('clients.phones', 'ClientPhoneController');
     Route::apiResource('clients.emails', 'ClientEmailController');
