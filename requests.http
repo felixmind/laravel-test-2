@@ -12,11 +12,13 @@ Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 GET http://127.0.0.1:8000/api/clients/14
 Accept: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 ###
 
 DELETE http://127.0.0.1:8000/api/clients/14
 Accept: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 ###
 
@@ -28,6 +30,7 @@ Accept: application/json
 POST http://127.0.0.1:8000/api/clients
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer :$1$Lb1FK6No$dsHLVYkyCT/0vejYgMVI90
 
 {
   "first_name": "Василий",
@@ -39,6 +42,7 @@ Content-Type: application/json
 PATCH http://127.0.0.1:8000/api/clients/13
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer :$1$Yz7zY6V/$6q/Fn0UWCPl8M2xLii6tQ0
 
 {
   "first_name": "Петр",
